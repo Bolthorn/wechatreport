@@ -2,7 +2,7 @@
 
 <html lang="en">
 
-  <head>
+<head>
     <script src="./js/img.json"></script>
     <meta charset="UTF-8">
 
@@ -11,7 +11,6 @@
     <title> Image Generator</title>
 
     <style>
-
         * {
 
             margin: 0%;
@@ -20,11 +19,11 @@
 
             box-sizing: border-box;
 
-              font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
 
         }
 
-          body {
+        body {
 
             background: rgba(120, 16, 180, 0.767);
 
@@ -38,7 +37,7 @@
 
         }
 
-          .container {
+        .container {
 
             margin: 1.5vh 20vw;
 
@@ -66,35 +65,39 @@
 
         }
 
-          h1 {
+        h1 {
 
             text-transform: uppercase;
 
         }
+
         #button {
-font-family: sans-serif;
-font-size: 15px;
-margin-top: 40px;
-border: 2px solid rgb(20, 139, 250);
-width: 155px;
-height: 50px;
-text-align: center;
-background-color: #0c81ee;
-display: flex;
-color: rgb(255, 255, 255);
-justify-content: center;
-align-items: center;
-cursor: pointer;
-border-radius: 7px;
-}
-.btn2{
-margin-left: 85px;
-}
-#button:hover {
-color: white;
-background-color: black;
-}
-          section {
+            font-family: sans-serif;
+            font-size: 15px;
+            margin-top: 40px;
+            border: 2px solid rgb(20, 139, 250);
+            width: 155px;
+            height: 50px;
+            text-align: center;
+            background-color: #0c81ee;
+            display: flex;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+
+        .btn2 {
+            margin-left: 85px;
+        }
+
+        #button:hover {
+            color: white;
+            background-color: black;
+        }
+
+        section {
 
             height: 50vh;
 
@@ -107,12 +110,11 @@ background-color: black;
             background-repeat: no-repeat;
 
         }
-
     </style>
 
 </head>
 
-  <body>
+<body>
 
     <div>
 
@@ -122,27 +124,29 @@ background-color: black;
 
         <p>
 
-           With the idea of imparting programming knowledge, 
+            With the idea of imparting programming knowledge,
 
-           Mr. Sandeep Jain, an IIT Roorkee alumnus started a dream,
+            Mr. Sandeep Jain, an IIT Roorkee alumnus started a dream,
 
-           GeeksforGeeks. Whether programming excites you or you 
+            GeeksforGeeks. Whether programming excites you or you
 
-           feel stifled, wondering how to prepare for interview
+            feel stifled, wondering how to prepare for interview
 
-           questions or how to ace data structures and algorithms, 
+            questions or how to ace data structures and algorithms,
 
-           GeeksforGeeks is a one-stop solution.
+            GeeksforGeeks is a one-stop solution.
 
         </p>
 
-          <br><br><br>
+        <br><br><br>
 
         <section></section>
         <table>
-            <th><div id="button" class="btn1"onclick="start()">开始</div></th>
-            <th><a  id="button" class="btn2" onclick="stop()">停止</a></th>
-         </table>
+            <th>
+                <div id="button" class="btn1" onclick="start()">开始</div>
+            </th>
+            <th><a id="button" class="btn2" onclick="stop()">停止</a></th>
+        </table>
         <br>
 
     </div>
@@ -157,36 +161,32 @@ background-color: black;
         }
         pics = selectSome
         const pic = document.querySelector('section');
-
-          function showImage() {
-
-            if(flag){
-                var a = Math.floor(Math.random() * pics.length);
-    
-                var img = pics[a];
-                
-                pic.style.backgroundImage = 'url("./img/'+img+'")';
+        function showImage() {
+            if (flag) {
+                for (let index = 0; index < 10; index++) {
+                    const element = json[Math.floor(Math.random() * pics.length)];
+                    pic.style.backgroundImage = 'url("./img/' + element + '")';
+                }
             }
-
         }
 
-          setInterval(showImage
-          , 50);
+        setInterval(showImage
+            , 50);
 
-          function start(){
-            
-            flag=1
-          }
-          
-          function stop(){
+        function start() {
+
+            flag = 1
+        }
+
+        function stop() {
             var a = Math.floor(Math.random() * json.length);
             var img = json[a];
-            pic.style.backgroundImage = 'url("./img/'+img+'")';
-            flag=0
+            pic.style.backgroundImage = 'url("./img/' + img + '")';
+            flag = 0
         }
 
     </script>
 
 </body>
 
-  </html>
+</html>
