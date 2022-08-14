@@ -71,7 +71,29 @@
             text-transform: uppercase;
 
         }
-
+        #button {
+font-family: sans-serif;
+font-size: 15px;
+margin-top: 40px;
+border: 2px solid rgb(20, 139, 250);
+width: 155px;
+height: 50px;
+text-align: center;
+background-color: #0c81ee;
+display: flex;
+color: rgb(255, 255, 255);
+justify-content: center;
+align-items: center;
+cursor: pointer;
+border-radius: 7px;
+}
+.btn2{
+margin-left: 85px;
+}
+#button:hover {
+color: white;
+background-color: black;
+}
           section {
 
             height: 50vh;
@@ -117,29 +139,51 @@
           <br><br><br>
 
         <section></section>
-
+        <table>
+            <th><div id="button" class="btn1"onclick="start()">开始</div></th>
+            <th><a  id="button" class="btn2" onclick="stop()">停止</a></th>
+         </table>
         <br>
 
     </div>
 
     <script>
-
-        const pics = json;
-        console.log(pics)
+        var flag = 1;
+        var pics = json;
+        const selectSome = []
+        for (let index = 0; index < 10; index++) {
+            const element = json[Math.floor(Math.random() * pics.length)];
+            selectSome.push(element)
+        }
+        pics = selectSome
         const pic = document.querySelector('section');
 
           function showImage() {
 
-            var a = Math.floor(Math.random() * pics.length);
-
-            var img = pics[a];
-
-            pic.style.backgroundImage = 'url("./img/'+img+'")';
+            if(flag){
+                var a = Math.floor(Math.random() * pics.length);
+    
+                var img = pics[a];
+                
+                pic.style.backgroundImage = 'url("./img/'+img+'")';
+            }
 
         }
 
           setInterval(showImage
-          , 1000);
+          , 50);
+
+          function start(){
+            
+            flag=1
+          }
+          
+          function stop(){
+            var a = Math.floor(Math.random() * json.length);
+            var img = json[a];
+            pic.style.backgroundImage = 'url("./img/'+img+'")';
+            flag=0
+        }
 
     </script>
 
